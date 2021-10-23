@@ -1,0 +1,16 @@
+---
+#my first playbook
+- name : simple playbook
+  hosts : node.example.com
+  tasks:
+  - name: install vsftpd
+    yum : install vsftd
+  - name: enable vsftpd
+    service: name=vsftpd enabled=true
+  - name: create readme file
+    copy:
+       content: "welcome to my ftp server"
+       dest: /var/ftp/pub/ReadMe
+       force: no
+       mode: 0444
+     
